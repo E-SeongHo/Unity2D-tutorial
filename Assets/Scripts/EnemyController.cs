@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     int direction = 1;
     float timer;
     bool broken = true;
+    public ParticleSystem smokeEffect;
      
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         timer = changeTime;
+
     }
 
     // Update is called once per frame
@@ -66,6 +68,7 @@ public class EnemyController : MonoBehaviour
         rigidbody2D.simulated = false;
 
         animator.SetTrigger("Fixed");
+        smokeEffect.Stop();
     }
 
 }
